@@ -1,12 +1,8 @@
 pipeline {
-    agent {
-        docker { 
-            image 'amazon/aws-cli' 
-            args '-u root' // permission kosam
-        }
-    }
+    agent  any
     environment {
         S3_BUCKET = 'ramya-static-website'
+        AWS_REGION = 'ap-south-1'
     }
     stages {
         stage('Deploy to S3') {
